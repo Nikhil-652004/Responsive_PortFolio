@@ -19,11 +19,10 @@
     padding: 20px;
 }
 .graphic{
-    align-self: flex-end;
-    display: flex;
-    justify-content:center;
-    align-items: center;
-    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    align-self: center;
 }
 .web{
     height: 100vh;
@@ -34,3 +33,24 @@ body{
     height: 100vh;
     width: 100vw;
 }
+
+@media (max-width:600px){
+    .aboutcontainer{
+        background-color: #fef9ed;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
+
+    .content{
+        font-size:small;
+        width: 100vw;
+    }
+
+    .graphic{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
+        align-self: center;
+    }
+  }

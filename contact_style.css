@@ -16,11 +16,10 @@ h1{
 }
 
 .graphic{
-    align-self: flex-end;
-    display: flex;
-    justify-content:center;
-    align-items: center;
-    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    align-self: center;
 }
 
 .contact > *{
