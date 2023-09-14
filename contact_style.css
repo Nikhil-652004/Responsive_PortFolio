@@ -1,0 +1,33 @@
+.content{
+    background-color: #fef9ed;
+    display: grid;
+}
+
+h1{
+    font-family: 'Dancing Script', cursive;
+    font-size: xx-large;
+}
+
+.contact{
+    display: flex;
+    padding: 50px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.graphic{
+    align-self: flex-end;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    padding: 20px;
+}
+
+.contact > *{
+    margin: 20px;
+}
+
+.web{
+    height: 100vh;
+    background-color: #fef9ed;
+}

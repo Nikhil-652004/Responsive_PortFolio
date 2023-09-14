@@ -1,0 +1,36 @@
+.aboutcontainer{
+    background-color: #fef9ed;
+    display: grid;
+    grid-template-rows: 500px auto;
+    grid-template-columns: 1fr 2fr;
+}
+
+.content > h1,h2,h4{
+    font-family: 'Dancing Script', cursive;
+
+}
+
+.content{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    padding: 20px;
+}
+.graphic{
+    align-self: flex-end;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    padding: 20px;
+}
+.web{
+    height: 100vh;
+    background-color: #fef9ed;
+}
+
+body{
+    height: 100vh;
+    width: 100vw;
+}

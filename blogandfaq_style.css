@@ -1,0 +1,26 @@
+.content{
+    display: flex ;
+    flex-direction: column;
+    background-color: #fef9ed;
+    height: 100vh;
+    align-content: space-evenly;
+    justify-content: center;
+}
+
+h1{
+    font-family: 'Dancing Script', cursive;
+    font-size: xx-large;
+}
+
+.inter{
+    text-align: center;
+}
+
+.graphic{
+    align-self: center;
+}
+
+body{
+    height: 100vh;
+    width: 100vw;
+}
