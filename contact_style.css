@@ -1,6 +1,10 @@
 .content{
+    display: flex ;
+    flex-direction: column;
     background-color: #fef9ed;
-    display: grid;
+    height: 80vh;
+    align-content: space-evenly;
+    justify-content: center;
 }
 
 h1{
@@ -29,4 +33,10 @@ h1{
 .web{
     height: 100vh;
     background-color: #fef9ed;
+}
+
+@media (max-width:500px){
+    .contact > a > img{
+        width: 50px;
+    }
 }
