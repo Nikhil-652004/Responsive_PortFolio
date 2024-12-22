@@ -3,69 +3,258 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nikhil Gokarakonda</title>
-    <link rel="stylesheet" href="./style.css"/>
-    <link rel="icon" href="./assets/Profile_Pic_Cropped.PNG"/>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Libre+Baskerville&display=swap" rel="stylesheet">
+    <title>PortFolio | Nikhil Gokarakonda</title>
+    <link rel="icon" href="/assests/image/img1.jpg">
+    <link rel="stylesheet" href="/assests/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
 </head>
 <body>
-  <div class="web">
-    <header class="p-3 text-bg-dark">
-        <div class="container">
-          <div class=" justify-content-lg-start">
-            <p>Nikhil Gokarakonda's Portfolio</p>
-            <ul class=" nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-end ">
-              <li><a class="nav-link px-2"><img  src="./assets/Profile_Pic_Cropped.PNG" width="23px"/></a></li>
-              <li><a class="nav-link px-2 text-white text-opacity-50">About Me</a></li>
-              <li><a href="./Education.html" class="nav-link px-2 text-white">Career</a></li>
-              <li><a href="./blog.html" class="nav-link px-2 text-white">Blog</a></li>
-              <li><a href="./faq.html" class="nav-link px-2 text-white">FAQs</a></li>
-              <li><a href="./contact.html" class="nav-link px-2 text-white">Contact</a></li>
-            </ul>
-          </div>
-        </div>
-    </header>
-    
-    <div class="aboutcontainer">
-    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img src="./assets/Profile_Picture.jpg" class="d-block w-30" alt="..." height="500px" >
-        </div>
-        <div class="carousel-item">
-          <img src="./assets/pic1.jpg" class="d-block w-30" alt="..." height="500px" >
-        </div>
-        <div class="carousel-item">
-          <img src="./assets/pic2.jpg" class="d-block w-30" alt="..." height="500px" >
-        </div>
-      </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
-    </div>
+    <header class="header">
+        <a href="#" class="logo">Nikhil's PortFolio</a>
 
-    <div class="content">
-      <div class="graphic">
-        <img src="./assets/cloud doodle.png" width="150px"/>
-        <img src="./assets/sun doodle.png" width="100px" style="padding-top: 40px;padding-left: 20px;"/>
-        <img src="./assets/cloud doodle.png" width="150px"/>
-      </div>
-      <h1>Hi! I am Nikhil Sri Sai Teja Gokarakonda</h1>
-      <h2>My pronouns are Learner, Teacher, Programmer</h2>
-      <br/>
-      <h4>I am from Andhra Pradesh State,  East Godavari District,  Kakinada Town
-      </h4>
-    </div>
-  </div>
-</div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+        <i class="fa-solid fa-bars" id="menu-icon"></i>
+        <nav class="navbar">
+            <a href="#home" class="active">Home</a>
+            <a href="#projects">Projects</a>
+            <a href="#skills">Skills & Profiles</a>
+            <a href="#education">Education</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section class="home" id="home">
+        <div class="home-img">
+            <img src="/assests/image/img1.jpg" alt="">
+        </div>
+        <div class="home-content">
+            <h1>Hi, It's <span>Nikhil</span></h1>
+            <h3 class="typing-text">I'm a <span></span></h3>
+            <p>Based in Kakinada, Andhra Pradesh, I'm a dedicated B.Tech student at <span>NIT Patna in CSE Department</span>, skilled in machine learning, web development, and competitive programming. Passionate about both sports and technology, I continually seek to blend these interests in creative and innovative ways.</p>
+            <div class="social-icon">
+                <a href="https://www.linkedin.com/in/nikhil-sri-sai-teja-gokarakonda-0bb614250"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://github.com/Nikhil-652004"><i class="fa-brands fa-square-github"></i></a>
+                <a href="mailto:nikhil652004@gmail.com"><i class="fa-brands fa-google"></i></a>
+                <a href="https://www.instagram.com/nikhil_6.5.24"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+
+            <a href="https://drive.google.com/file/d/1npQaO39yH76Mzqsxwe5P7kVAQd9UPfHX/view?usp=drivesdk" class="btn">Download CV</a>
+        </div>
+    </section>
+    <section class="projects" id="projects">
+        <h2 class="heading">Projects</h2>
+        <div class="projects-container">
+            <a href="https://github.com/Nikhil-652004/Tomato_crop_virus_detection"><div class="project-box">
+                <div class="project-info">
+                    <h4>Tomato Leaf Disease Detection</h4>
+                    <p>Machine learning model trained to classify plant images as healthy or affected by one of nine pre-defined diseases.</p>
+                    
+                </div>
+            </div></a>
+
+            <a href="https://github.com/Nikhil-652004/Weather-app"><div class="project-box">
+                <div class="project-info">
+                    <h4>Weather Application</h4>
+                    <p>Built a web-based application to deliver real-time weather updates based on user-specified locations, providing accurate and
+                        timely weather information using OpenWeatherMap API.</p>
+                </div>
+            </div></a>
+
+            <a href="https://github.com/Nikhil-652004/EV-Battery-Range-Prediction-using-Arudino-UNO-and-ML"><div class="project-box">
+                <div class="project-info">
+                    <h4>EV Range Prediction</h4>
+                    <p>This introduces an Electric Vehicle Range Predictor using ML algorithms and Arduino, estimating range based on sensor inputs like current, voltage, speed, temperature, and SOC to simulate real-world conditions.</p>
+                </div>
+            </div></a>
+
+            <a href="https://github.com/Nikhil-652004/Portfolio_usingBootstrap"><div class="project-box">
+                <div class="project-info">
+                    <h4>Responsive PortFolio</h4>
+                    <p>This project involves creating a responsive portfolio using HTML, CSS, and JS, showcasing skills and projects. The design ensures adaptability across devices, providing an engaging and user-friendly experience.</p>
+                </div>
+            </div></a>
+
+            <a href="https://github.com/Nikhil-652004/CMS_Application"><div class="project-box">
+                <div class="project-info">
+                    <h4>Contact Management System</h4>
+                    <p>We built an web-based application to store and manage contacts using NodeJS, MongoDB, ExpressJS and EJS Templating Engine</p>
+                </div>
+            </div></a>
+
+            <a><div class="project-box">
+                <div class="project-info">
+                    <h4>ChatBot using Llama3(7B params)</h4>
+                    <p>This project builds a chatbot using the Llama 3 model, offering accurate, conversational responses and seamless interaction for real-world applications.</p>
+                </div>
+            </div></a>
+        </div>
+    </section>
+
+    <section class="skills" id="skills">
+        <h2 class="heading">Skills</h2>
+        <div class="container">
+            <div class="row" id="skillsContainer">
+                <a href="https://www.w3schools.com/cpp/"><div class="bar">
+                    <div class="info">
+                        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/cplusplus/cplusplus-original.svg" alt="cplusplus" width="100" height="100"/>
+                        <span>C++</span>
+                    </div>
+                </div></a>
+                <a href="https://www.w3schools.com/java/"><div class="bar">
+                    <div class="info">
+                        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" alt="cplusplus" width="100" height="100"/>
+                        <span>Java</span>
+                    </div>
+                </div></a>
+                <a href="https://www.python.org"><div class="bar">
+                    <div class="info">
+                        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="python" width="100" height="100"/>
+                        <span>Python</span>
+                    </div>
+                </div></a>
+                <a href="https://www.tensorflow.org"><div class="bar">
+                    <div class="info">
+                        <img src="https://www.vectorlogo.zone/logos/tensorflow/tensorflow-icon.svg" alt="tensorflow" width="100" height="100"/> 
+                        <span>TensorFlow</span>
+                    </div>
+                </div></a>
+                <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"><div class="bar">
+                    <div class="info">
+                        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="100" height="100"/>
+                        <span>JS</span>
+                    </div>
+                </div></a>
+                <a href="https://www.mongodb.com"><div class="bar">
+                    <div class="info">
+                        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original-wordmark.svg" alt="mongodb" width="100" height="100"/>
+                        <span>MongoDB</span>
+                    </div>
+                </div></a>
+                <a href="https://nodejs.org"><div class="bar">
+                    <div class="info">
+                        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg" alt="nodejs" width="100" height="100"/>
+                        <span>NodeJS</span>
+                    </div>
+                </div></a>
+                <a href="https://www.mysql.com/"><div class="bar">
+                    <div class="info">
+                        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg" alt="mysql" width="100" height="100"/>
+                        <span>MySQL</span>
+                    </div>
+                </div></a>
+            </div>
+        </div>
+        
+        <h2 style="padding: 20px;" class="heading">Profiles</h2>
+        <div class="container">
+            <div class="row" id="skillsContainer">
+                <a href="https://auth.geeksforgeeks.org/user/nikhil652004"><div class="bar">
+                    <div class="info">
+                        <img src="data:image/png;base64,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" alt="geeksforgeeks" width="100" height="100"/>
+                        <span>GFG</span>
+                    </div>
+                </div></a>
+                <a href="https://leetcode.com/Nikhil_6524"><div class="bar">
+                    <div class="info">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXicr6c9U-beoW9MksteyGTPpGOrQcvoOg1g&s" alt="leetcode" width="100" height="100"/>
+                        <span>Leetcode</span>
+                    </div>
+                </div></a>
+                <a href="https://www.hackerrank.com/nikhil652004"><div class="bar">
+                    <div class="info">
+                        <img src="data:image/png;base64,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" alt="HackerRank" width="100" height="100"/>
+                        <span>HackerRank</span>
+                    </div>
+                </div></a>
+                <a href="https://github.com/Nikhil-652004"><div class="bar">
+                    <div class="info">
+                        <img src="data:image/png;base64,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" alt="GitHub" width="100" height="100"/> 
+                        <span>GitHub</span>
+                    </div>
+                </div></a>
+            </div>
+        </div>
+    </section>
+
+    <section class="education" id="education">
+        <h2 class="heading">My <span>Education</span></h2>
+        <div class="timeline">
+            <div class="container right">
+                <div class="content">
+                    <div class="tag">
+                        <h2>UnderGraduation</h2>
+                    </div>
+                    <div class="decs">
+                        <p style="color:white; font-size:1.6rem;">National Institute of Technology, Patna</p>
+                        <p>B.Tech in Computer Science Engineering</p>
+                        <p>CGPA(Till 6th Semester): 8.3/10 </p>
+                        <p>2021 - 2025</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container left">
+                <div class="content">
+                    <div class="tag">
+                        <h2>Intermediate</h2>
+                    </div>
+                    <div class="decs">
+                        <p style="color: white; font-size:1.6rem;">Sri Tirumala Junior College</p>
+                        <p>Board of Intermediate Education, Andhra Pradesh</p>
+                        <p>Percentage: 97% </p>
+                        <p>2019 - 2021</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container right">
+                <div class="content">
+                    <div class="tag">
+                        <h2>Matriculation</h2>
+                    </div>
+                    <div class="decs">
+                        <p style="color: white; font-size:1.6rem;">Bhashyam High School</p>
+                        <p>Board of Secondary Education, Andhra Pradesh</p>
+                        <p>CGPA: 9.7/10 </p>
+                        <p>2018 - 2019</p>
+                    </div>
+                </div>
+            </div>  
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="heading">Contact <span>Me</span></div>
+        <form action="">
+            <div class="input-box">
+                <input type="text" name="name" placeholder="Name" required>
+                <input type="email" placeholder="Email" required>
+                <input type="Number" placeholder="Phone Number" required>
+                <input type="text" placeholder="Subject" required>
+            </div>
+            <textarea name="" id="" cols="30" rows="10" placeholder="Your Message"></textarea>
+            <input type="submit" value="Send Message" class="btn">
+        </form>
+    </section>
+
+    <footer class="footer">
+        <div class="social">
+            <a href="https://www.linkedin.com/in/nikhil-sri-sai-teja-gokarakonda-0bb614250"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://github.com/Nikhil-652004"><i class="fa-brands fa-square-github"></i></a>
+                <a href="mailto:nikhil652004@gmail.com"><i class="fa-brands fa-google"></i></a>
+                <a href="https://www.instagram.com/nikhil_6.5.24"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+        <ul class="list">
+            <li><a href="#contact">FAQ</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <p class="copyright">
+            Copyright by Nikhil Gokarakonda | All Right Reserved
+        </p>
+    </footer>
+    <script src="/assests/js/script.js"></script>
 </body>
 </html>
