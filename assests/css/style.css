@@ -14,7 +14,7 @@ font-family: 'Poppins', sans-serif;
    --bg-color: #000000;
    --second-bg-color: #161616;
    --text-color: #fff;
-   --main-color: red;
+   --main-color: rgb(235, 41, 41);
 }
 html {
 font-size: 62.5%;
