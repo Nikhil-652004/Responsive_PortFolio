@@ -3,823 +3,364 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nikhil Gokarakonda - Personal Portfolio</title>
+  <title>Nikhil Gokarakonda — Software Engineer</title>
+  <meta name="author" content="Gokarakonda Nikhil Sri Sai Teja">
+  <meta name="description" content="Full-Stack Software Engineer at Lucidity. React, Spring Boot & applied ML.">
 
-  <!--
-    - favicon
-  -->
   <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon">
-
-  <!--
-    - custom css link
-  -->
   <link rel="stylesheet" href="./assets/css/style.css">
 
-  <!--
-    - google font link
-  -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-  <!--
-    - #MAIN
-  -->
+  <div class="bg-ambient" aria-hidden="true"></div>
+  <div class="bg-grain" aria-hidden="true"></div>
 
   <main>
 
-    <!--
-      - #SIDEBAR
-    -->
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div class="hero-decor" aria-hidden="true">
+        <div class="panel p1"><span></span><span></span><span></span><span></span></div>
+        <div class="panel p2"><span></span><span></span><span></span></div>
+        <div class="panel p3"><span></span><span></span><span></span><span></span></div>
+        <div class="panel p4"><span></span><span></span></div>
+      </div>
 
-    <aside class="sidebar" data-sidebar>
-
-      <div class="sidebar-info">
-
-        <figure class="avatar-box">
-          <img src="./assets/images/my-avatar.png" alt="Gokarakonda Nikhil" width="80">
+      <div class="hero-inner">
+        <figure class="avatar reveal">
+          <img src="./assets/images/my-avatar.png" alt="Nikhil Gokarakonda">
+          <span class="avatar-dot"></span>
         </figure>
 
-        <div class="info-content">
-          <h1 class="name" title="Om Kharche">Gokarakonda </br> Nikhil Sri Sai Teja</h1>
+        <h1 class="hero-name reveal">Nikhil <span class="spark">✦</span> Gokarakonda</h1>
+        <p class="hero-role reveal">Full-Stack Software Engineer @ Lucidity</p>
+        <p class="hero-tag reveal">React &amp; Spring Boot for cloud products — plus applied machine learning.</p>
+      </div>
+    </section>
 
-          <p class="title">Front-End Developer</p>
+    <!-- ABOUT -->
+    <section class="section" id="about">
+      <div class="container narrow center">
+        <h2 class="section-title reveal">About Me</h2>
+        <p class="eyebrow-rule reveal"><span>Full-Stack Engineer · NIT Patna</span></p>
+
+        <div class="prose reveal">
+          <p>
+            I'm a <strong>Full-Stack Software Engineer</strong> at <strong>Lucidity</strong>, building
+            performant cloud-storage products across the stack — <strong>React.js</strong> on the front
+            and <strong>Spring Boot</strong> on the back.
+          </p>
+          <p>
+            A CSE graduate from <strong>NIT Patna</strong> (CGPA <strong>8.36</strong>), I like owning
+            features end-to-end: shipping fast, intuitive UI and the backend logic and data layers that
+            power it. I'm also into <strong>machine learning</strong> and competitive programming.
+          </p>
+          <p>
+            Recently I built a homegrown <strong>AI-powered PR review tool</strong> with a pluggable
+            LLM switch for Claude and Gemini — bridging clean engineering with practical AI.
+          </p>
         </div>
 
-        <button class="info_more-btn" data-sidebar-btn>
-          <span>Show Contacts</span>
-
-          <ion-icon name="chevron-down"></ion-icon>
-        </button>
-
+        <div class="divider reveal">✦</div>
       </div>
+    </section>
 
-      <div class="sidebar-info_more">
+    <!-- EXPERIENCE -->
+    <section class="section" id="experience">
+      <div class="container">
+        <h2 class="section-title metallic center reveal">EXPERIENCE</h2>
+        <p class="subtitle center reveal">Lucidity · Bengaluru, Karnataka — Jan 2025 to Present</p>
 
-        <div class="separator"></div>
+        <div class="cards">
 
-        <ul class="contacts-list">
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="mail-outline"></ion-icon>
+          <article class="xp-card reveal">
+            <div class="xp-side">
+              <div class="xp-logo grad-a"><ion-icon name="trending-up-outline"></ion-icon></div>
+              <span class="date-pill">Jul 2025 — Present</span>
             </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Email</p>
-
-              <a href="mailto:nikhil652004@gmail.com" class="contact-link">nikhil652004@gmail.com</a>
+            <div class="xp-body">
+              <h3 class="xp-role">Software Development Engineer <span style="color:var(--accent)">↑ Promoted</span></h3>
+              <p class="xp-company"><ion-icon name="briefcase-outline"></ion-icon> Lucidity</p>
+              <ul class="bullets">
+                <li><i class="dot c1"></i>Improved cloud-storage cost-savings accuracy by <strong>30%</strong> by adding missing IOPS/throughput provisioning data into the projected-spend engine (Spring Boot backend).</li>
+                <li><i class="dot c2"></i>Reduced cross-datasource query latency by introducing <strong>Trino</strong> as a unified aggregation layer over read databases.</li>
+                <li><i class="dot c3"></i>Built the <strong>Savings Drilldown</strong> feature end-to-end (FE + BE) — per-disk optimised vs. unoptimised spend, with Grafana panels for Customer Success.</li>
+                <li><i class="dot c4"></i>Integrated <strong>Elasticsearch</strong> server-side index search into the frontend for fast full-text search across cloud resources.</li>
+                <li><i class="dot c5"></i>Built an <strong>AI-powered PR review tool</strong> with a pluggable LLM switch supporting Claude &amp; Gemini.</li>
+                <li><i class="dot c6"></i>Awarded the <strong>Champions Award (Q4 2025)</strong> for high-impact cross-functional contributions.</li>
+              </ul>
             </div>
+          </article>
 
-          </li>
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="bag-handle-outline"></ion-icon>
+          <article class="xp-card reveal">
+            <div class="xp-side">
+              <div class="xp-logo grad-b"><ion-icon name="code-slash-outline"></ion-icon></div>
+              <span class="date-pill">Jan 2025 — Jun 2025</span>
             </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Work</p>
-
-              <a href="https://www.lucidity.cloud" class="contact-link">Lucidity</a>
+            <div class="xp-body">
+              <h3 class="xp-role">Software Development Engineer Intern</h3>
+              <p class="xp-company"><ion-icon name="briefcase-outline"></ion-icon> Lucidity</p>
+              <ul class="bullets">
+                <li><i class="dot c1"></i>Owned front-end of the <strong>Agent Install</strong> flow and <strong>StoreFront</strong> platform using React.js; cut key page load time by <strong>~25%</strong> via code-splitting and lazy loading.</li>
+                <li><i class="dot c2"></i>Collaborated with design and backend teams to ship the end-to-end Agent Install onboarding experience for new cloud customers.</li>
+              </ul>
             </div>
-
-          </li>
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="calendar-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Birthday</p>
-
-              <time datetime="1982-06-23">6 May, 2004</time>
-            </div>
-
-          </li>
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="location-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Location</p>
-
-              <address>Kakinada, Andhra Pradesh, India</address>
-            </div>
-
-          </li>
-
-        </ul>
-
-        <div class="separator"></div>
-
-        <ul class="social-list">
-
-          <li class="social-item">
-            <a href="https://www.linkedin.com/in/nikhil-sri-sai-teja-gokarakonda-0bb614250" class="social-link">
-              <ion-icon name="logo-linkedin"></ion-icon>
-            </a>
-          </li>
-
-          <li class="social-item">
-            <a href="https://github.com/Nikhil-652004" class="social-link">
-              <ion-icon name="logo-github"></ion-icon>
-            </a>
-          </li>
-
-          <li class="social-item">
-            <a href="https://www.instagram.com/nikhil_6.5.24" class="social-link">
-              <ion-icon name="logo-instagram"></ion-icon>
-            </a>
-          </li>
-
-        </ul>
-
-      </div>
-
-    </aside>
-
-
-
-
-
-    <!--
-      - #main-content
-    -->
-
-    <div class="main-content">
-
-      <!--
-        - #NAVBAR
-      -->
-
-      <nav class="navbar">
-
-        <ul class="navbar-list">
-
-          <li class="navbar-item">
-            <button class="navbar-link  active" data-nav-link>About</button>
-          </li>
-
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Resume</button>
-          </li>
-
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Portfolio</button>
-          </li>
-
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Contact</button>
-          </li>
-
-        </ul>
-
-      </nav>
-
-
-
-
-
-      <!--
-        - #ABOUT
-      -->
-
-      <article class="about  active" data-page="about">
-
-        <header>
-          <h2 class="h2 article-title">About me</h2>
-        </header>
-
-        <section class="about-text">
-          <p>
-            I'm Front-End Software Development Engineer in Lucidity located in Bangalore, Karnataka, India.
-            I enjoy
-            turning complex problems into simple, beautiful and intuitive designs.
-          </p>
-
-          <p>
-            Based in Kakinada, Andhra Pradesh, I'm a dedicated B.Tech student at NIT Patna in CSE Department, skilled in machine learning, web development, and competitive programming. Passionate about both sports and technology, I continually seek to blend these interests in creative and innovative ways.
-          </p>
-        </section>
-
-
-        <!--
-          - service
-        -->
-
-        <section class="service">
-
-          <h3 class="h3 service-title">What i'm doing</h3>
-
-          <ul class="service-list">
-
-            <li class="service-item">
-
-              <div class="service-icon-box">
-                <img src="./assets/images/icon-design.svg
-                " alt="design icon" width="40">
-              </div>
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Web design</h4>
-
-                <p class="service-item-text">
-                  The most modern and high-quality design made at a professional level.
-                </p>
-              </div>
-
-            </li>
-
-            <li class="service-item">
-
-              <div class="service-icon-box">
-                <img src="./assets/images/icon-dev.svg" alt="Web development icon" width="40">
-              </div>
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Web development</h4>
-
-                <p class="service-item-text">
-                  High-quality development of sites at the professional level.
-                </p>
-              </div>
-
-            </li>
-
-            <li class="service-item">
-
-              <div class="service-icon-box">
-                <img src="./assets/images/icon-app.svg" alt="mobile app icon" width="40">
-              </div>
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Video Editing</h4>
-
-                <p class="service-item-text">
-                  Professional video editing services for various platforms.
-                </p>
-              </div>
-
-            </li>
-
-            <li class="service-item">
-
-              <div class="service-icon-box">
-                <img src="./assets/images/icon-photo.svg" alt="camera icon" width="40">
-              </div>
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Photography</h4>
-
-                <p class="service-item-text">
-                  I make high-quality photos of any category at a professional level.
-                </p>
-              </div>
-
-            </li>
-
-          </ul>
-
-        </section>
-
-
-        <!--
-          - testimonials
-        -->
-
-        <section class="testimonials">
-
-          <h3 class="h3 testimonials-title">Achievements</h3>
-
-          <ul class="testimonials-list has-scrollbar">
-
-            <li class="testimonials-item">
-              <div class="content-card" data-testimonials-item>
-
-                <figure class="testimonials-avatar-box">
-                  <img src="./assets/images/avatar-1.png" alt="Lucidity" width="60" data-testimonials-avatar>
-                </figure>
-
-                <h4 class="h4 testimonials-item-title" data-testimonials-title>Lucidity</h4>
-
-                <div class="testimonials-text" data-testimonials-text>
-                  <p>
-                    Recently promoted to Software Development Engineer - Frontend at Lucidity, where I am responsible for developing and maintaining the frontend of various web applications.
-                    I have also completed my internship at Lucidity as a Software Development Engineering Intern, where I
-                    assisted in the development and maintenance of web applications.
-                  </p>
-                </div>
-
-              </div>
-            </li>
-
-            <li class="testimonials-item">
-              <div class="content-card" data-testimonials-item>
-
-                <figure class="testimonials-avatar-box">
-                  <img src="./assets/images/avatar-2.png" alt="Springer Nature" width="60" data-testimonials-avatar>
-                </figure>
-
-                <h4 class="h4 testimonials-item-title" data-testimonials-title>Springer Nature</h4>
-
-                <div class="testimonials-text" data-testimonials-text>
-                  <p>
-                    Completed a research in Quantum Computing assisted in efficient user allocation of UAV system in case of disaster management using Quantum Computing inspired Cuckoo Search Optimization. 
-                  </p>
-                </div>
-
-              </div>
-            </li>
-
-            <li class="testimonials-item">
-              <div class="content-card" data-testimonials-item>
-
-                <figure class="testimonials-avatar-box">
-                  <img src="./assets/images/avatar-3.png" alt="NIT Patna" width="60" data-testimonials-avatar>
-                </figure>
-
-                <h4 class="h4 testimonials-item-title" data-testimonials-title>NIT Patna</h4>
-
-                <div class="testimonials-text" data-testimonials-text>
-                  <p>
-                    Graduated Bachelors degree in majoring Computer Science and Engineering at NIT Patna, where I am honing my skills in machine learning, web development, and competitive programming.
-                    I have maintained an outstanding Cummulative Grade Point Average of 8.52. I am very happy to be a part of this prestigious institution.
-                  </p>
-                </div>
-
-              </div>
-            </li>
-
-          </ul>
-
-        </section>
-
-
-        <!--
-          - testimonials modal
-        -->
-
-        <div class="modal-container" data-modal-container>
-
-          <div class="overlay" data-overlay></div>
-
-          <section class="testimonials-modal">
-
-            <button class="modal-close-btn" data-modal-close-btn>
-              <ion-icon name="close-outline"></ion-icon>
-            </button>
-
-            <div class="modal-img-wrapper">
-              <figure class="modal-avatar-box">
-                <img src="./assets/images/avatar-1.png" alt="Daniel lewis" width="80" data-modal-img>
-              </figure>
-
-              <img src="./assets/images/icon-quote.svg" alt="quote icon">
-            </div>
-
-            <div class="modal-content">
-
-              <h4 class="h3 modal-title" data-modal-title>Daniel lewis</h4>
-
-              <time datetime="2021-06-14">14 June, 2021</time>
-
-              <div data-modal-text>
-                <p>
-                  Richard was hired to create a corporate identity. We were very pleased with the work done. She has a
-                  lot of experience
-                  and is very concerned about the needs of client. Lorem ipsum dolor sit amet, ullamcous cididt
-                  consectetur adipiscing
-                  elit, seds do et eiusmod tempor incididunt ut laborels dolore magnarels alia.
-                </p>
-              </div>
-
-            </div>
-
-          </section>
+          </article>
 
         </div>
+      </div>
+    </section>
 
+    <!-- EDUCATION -->
+    <section class="section" id="education">
+      <div class="container narrow">
+        <p class="eyebrow center reveal">Education</p>
+        <h2 class="section-title center reveal">Where I studied</h2>
 
-        <!--
-          - clients
-        -->
-
-        <section class="clients">
-
-          <h3 class="h3 clients-title">Technologies I worked on</h3>
-
-          <ul class="clients-list has-scrollbar">
-
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-1-color.png" alt="client logo">
-              </a>
-            </li>
-
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-2-color.png" alt="client logo">
-              </a>
-            </li>
-
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-3-color.png" alt="client logo">
-              </a>
-            </li>
-
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-4-color.png" alt="client logo">
-              </a>
-            </li>
-
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-5-color.png" alt="client logo">
-              </a>
-            </li>
-
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-6-color.png" alt="client logo">
-              </a>
-            </li>
-
-          </ul>
-
-        </section>
-
-      </article>
-
-
-
-
-
-      <!--
-        - #RESUME
-      -->
-
-      <article class="resume" data-page="resume">
-
-        <header>
-          <h2 class="h2 article-title">Resume</h2>
-        </header>
-
-        <section class="timeline">
-
-          <div class="title-wrapper">
-            <div class="icon-box">
-              <ion-icon name="book-outline"></ion-icon>
+        <div class="award-list">
+          <div class="award reveal">
+            <div class="xp-logo grad-a sm"><ion-icon name="school-outline"></ion-icon></div>
+            <div>
+              <h3 class="award-title">B.Tech, Computer Science &amp; Engineering — NIT Patna</h3>
+              <p class="award-desc">2021 – 2025 · CGPA 8.36. Coursework in Operating Systems, DBMS, Computer Networks and OOP.</p>
             </div>
-
-            <h3 class="h3">Education</h3>
           </div>
-
-          <ol class="timeline-list">
-
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">National Institute of Technology Patna</h4>
-
-              <span>2021 — 2025</span>
-
-              <p class="timeline-text">
-                Finished my Bachelors in Technology in Computer Science and Engineering from NIT Patna with an astounding Cummulative Grade Point Average of 8.52.
-              </p>
-
-            </li>
-
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">Sri Tirumala Junior College</h4>
-
-              <span>2019 — 2021</span>
-
-              <p class="timeline-text">
-                Finished my Intermediate in Mathematics, Physics and Chemistry from Sri Tirumala Junior College with an astounding 97%.
-              </p>
-
-            </li>
-
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">Bhashyam High School</h4>
-
-              <span>2018 — 2019</span>
-
-              <p class="timeline-text">
-                Finished my Secondary Schooling from Bhashyam High School with an astounding 9.7/10 CGPA.
-              </p>
-
-            </li>
-
-          </ol>
-
-        </section>
-<section class="timeline">
-
-  <div class="title-wrapper">
-    <div class="icon-box">
-      <ion-icon name="desktop-outline"></ion-icon>
-    </div>
-
-    <h3 class="h3">Experience</h3>
-  </div>
-
-  <ol class="timeline-list">
-
-    <li class="timeline-item">
-
-      <h4 class="h4 timeline-item-title">Lucidity</h4>
-      <ol class="timeline-list">
-        <li class="timeline-item">
-          <h4 class="h3 timeline-item-title">Software Development Engineer - Frontend</h4>
-          <span>July 2025 — Present</span>
-          <p class="timeline-text">
-            Currently working as a Software Development Engineer - Frontend at Lucidity, where I am responsible for
-            developing and maintaining the frontend of various web applications.
-          </p>
-        </li>
-
-        <li class="timeline-item">
-          <h4 class="h3 timeline-item-title">Software Development Engineering Intern</h4>
-          <span>January 2025 — June 2025</span>
-          <p class="timeline-text">
-            Finished my tenure at Lucidity as a Software Development Engineering Intern, where I assisted in the
-            development and maintenance of web applications.
-          </p>
-        </li>
-      </ol>
-    </li>
-    <li class="timeline-item">
-
-      <h4 class="h4 timeline-item-title">EISystems</h4>
-
-      <span>February 2024 — April 2024</span>
-
-      <p class="timeline-text">
-        Worked as a Machine Learning Intern at EISystems, where I was involved in developing machine learning models and algorithms to solve real-world problems.
-      </p>
-
-    </li>
-  </ol>
-
-        </section>
-
-      </article>
-
-
-
-
-
-      <!--
-        - #PORTFOLIO
-      -->
-
-      <article class="portfolio" data-page="portfolio">
-
-        <header>
-          <h2 class="h2 article-title">Portfolio</h2>
-        </header>
-
-        <section class="projects">
-
-          <ul class="filter-list">
-
-            <li class="filter-item">
-              <button class="active" data-filter-btn>All</button>
-            </li>
-
-            <li class="filter-item">
-              <button data-filter-btn>Applications</button>
-            </li>
-
-            <li class="filter-item">
-              <button data-filter-btn>Web development</button>
-            </li>
-
-          </ul>
-
-          <div class="filter-select-box">
-
-            <button class="filter-select" data-select>
-
-              <div class="select-value" data-selecct-value>Select category</div>
-
-              <div class="select-icon">
-                <ion-icon name="chevron-down"></ion-icon>
-              </div>
-
-            </button>
-
-            <ul class="select-list">
-
-              <li class="select-item">
-                <button data-select-item>All</button>
-              </li>
-
-              <li class="select-item">
-                <button data-select-item>Applications</button>
-              </li>
-
-              <li class="select-item">
-                <button data-select-item>Web development</button>
-              </li>
-
-            </ul>
-
-          </div>
-
-          <ul class="project-list">
-
-            <li class="project-item  active" data-filter-item data-category="web development">
-              <a href="https://weathernode.netlify.app/">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-1.jpg" alt="finance" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Weather Application</h3>
-
-                <p class="project-category">Web development</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="applications">
-              <a href="https://github.com/Nikhil-652004/CMS_Application">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-2.png" alt="orizon" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">CMS Application</h3>
-
-                <p class="project-category">Applications</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="applications">
-              <a href="https://github.com/Nikhil-652004/EV-Battery-Range-Prediction-using-Arudino-UNO-and-ML">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-3.jpg" alt="brawlhalla" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">EV Battery Range Predictor</h3>
-
-                <p class="project-category">Applications</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="applications">
-              <a href="https://github.com/Nikhil-652004/Byteverse_team_heart_trackers">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-4.png" alt="brawlhalla" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">HeartWatch</h3>
-
-                <p class="project-category">Applications</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="web development">
-              <a href="https://github.com/Nikhil-652004/Online_Payment_Fraud_Detection">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-5.png" alt="arrival" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Credit Card Fraud Detection</h3>
-
-                <p class="project-category">Web development</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="applications">
-              <a href="https://github.com/Nikhil-652004/Tomato_crop_virus_detection">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-6.png" alt="brawlhalla" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Tomato leaf disease detection</h3>
-
-                <p class="project-category">Applications</p>
-
-              </a>
-            </li>
-
-          </ul>
-
-        </section>
-
-      </article>
-
-      <!--
-        - #CONTACT
-      -->
-
-      <article class="contact" data-page="contact">
-
-        <header>
-          <h2 class="h2 article-title">Contact</h2>
-        </header>
-
-        <section class="mapbox" data-mapbox>
-          <figure>
-            <iframe
-              src="https://www.google.com/maps?q=12.9164944,77.6657581&z=14&output=embed"
-              width="400" height="300" loading="lazy"></iframe>
-          </figure>
-        </section>
-
-        <section class="contact-form">
-
-          <h3 class="h3 form-title">Contact Form</h3>
-
-          <form action="#" class="form" data-form>
-
-            <div class="input-wrapper">
-              <input type="text" name="fullname" class="form-input" placeholder="Full name" required data-form-input>
-
-              <input type="email" name="email" class="form-input" placeholder="Email address" required data-form-input>
+          <div class="award reveal">
+            <div class="xp-logo grad-c sm"><ion-icon name="book-outline"></ion-icon></div>
+            <div>
+              <h3 class="award-title">Intermediate (MPC) — Sri Tirumala Junior College</h3>
+              <p class="award-desc">2019 – 2021 · 97%, Board of Intermediate Education, Andhra Pradesh.</p>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-            <textarea name="message" class="form-input" placeholder="Your Message" required data-form-input></textarea>
+    <!-- SELECTED WORKS -->
+    <section class="section" id="projects">
+      <div class="container">
+        <p class="eyebrow center reveal">Selected Works</p>
+        <h2 class="section-title metallic center reveal">Projects</h2>
+        <p class="subtitle center reveal">Research, ML and full-stack builds.</p>
 
-            <button class="form-btn" type="submit" disabled data-form-btn>
-              <ion-icon name="paper-plane"></ion-icon>
-              <span>Send Message</span>
-            </button>
+        <div class="project-grid">
 
-          </form>
+          <a href="https://github.com/Nikhil-652004" target="_blank" rel="noopener" class="project-card reveal">
+            <div class="project-thumb grad thumb-qicso"><ion-icon name="airplane-outline"></ion-icon></div>
+            <div class="project-body">
+              <h3 class="project-name">Disaster Management — QICSO <ion-icon name="arrow-forward-outline"></ion-icon></h3>
+              <p class="project-desc">Quantum-Inspired Cuckoo Search with hash-based decoding; improved UAV-assisted MEC user allocation efficiency by 13%. Research paper pending publication.</p>
+              <div class="tags"><span class="tag tag-purple">Python</span><span class="tag tag-indigo">Quantum-Inspired</span><span class="tag tag-yellow">Power BI</span></div>
+            </div>
+          </a>
 
-        </section>
+          <a href="https://github.com/Nikhil-652004/Tomato_crop_virus_detection" target="_blank" rel="noopener" class="project-card reveal">
+            <div class="project-thumb"><img src="./assets/images/project-6.png" alt="Tomato Leaf Disease Detection" loading="lazy"></div>
+            <div class="project-body">
+              <h3 class="project-name">Tomato Leaf Disease Detection <ion-icon name="arrow-forward-outline"></ion-icon></h3>
+              <p class="project-desc">CNN classifying plant images across 9 disease categories — 93.3% training and 88.1% testing accuracy.</p>
+              <div class="tags"><span class="tag tag-purple">TensorFlow</span><span class="tag tag-green">scikit-learn</span></div>
+            </div>
+          </a>
 
-      </article>
+          <a href="https://weathernode.netlify.app/" target="_blank" rel="noopener" class="project-card reveal">
+            <div class="project-thumb"><img src="./assets/images/project-1.jpg" alt="Weather Application" loading="lazy"></div>
+            <div class="project-body">
+              <h3 class="project-name">Weather Application <ion-icon name="arrow-forward-outline"></ion-icon></h3>
+              <p class="project-desc">Live weather with location search and hourly &amp; 7-day forecasts.</p>
+              <div class="tags"><span class="tag tag-cyan">JavaScript</span><span class="tag tag-blue">API</span></div>
+            </div>
+          </a>
 
-    </div>
+          <a href="https://github.com/Nikhil-652004/CMS_Application" target="_blank" rel="noopener" class="project-card reveal">
+            <div class="project-thumb"><img src="./assets/images/project-2.png" alt="CMS Application" loading="lazy"></div>
+            <div class="project-body">
+              <h3 class="project-name">CMS Application <ion-icon name="arrow-forward-outline"></ion-icon></h3>
+              <p class="project-desc">A content management system for creating and managing structured content.</p>
+              <div class="tags"><span class="tag tag-green">Full-stack</span><span class="tag tag-orange">App</span></div>
+            </div>
+          </a>
+
+          <a href="https://github.com/Nikhil-652004/EV-Battery-Range-Prediction-using-Arudino-UNO-and-ML" target="_blank" rel="noopener" class="project-card reveal">
+            <div class="project-thumb"><img src="./assets/images/project-3.jpg" alt="EV Battery Range Predictor" loading="lazy"></div>
+            <div class="project-body">
+              <h3 class="project-name">EV Battery Range Predictor <ion-icon name="arrow-forward-outline"></ion-icon></h3>
+              <p class="project-desc">Predicting EV range with Arduino UNO sensor data and machine learning.</p>
+              <div class="tags"><span class="tag tag-purple">ML</span><span class="tag tag-yellow">Arduino</span></div>
+            </div>
+          </a>
+
+          <a href="https://github.com/Nikhil-652004/Online_Payment_Fraud_Detection" target="_blank" rel="noopener" class="project-card reveal">
+            <div class="project-thumb"><img src="./assets/images/project-5.png" alt="Fraud Detection" loading="lazy"></div>
+            <div class="project-body">
+              <h3 class="project-name">Online Payment Fraud Detection <ion-icon name="arrow-forward-outline"></ion-icon></h3>
+              <p class="project-desc">Detecting fraudulent online payments with ML classification models.</p>
+              <div class="tags"><span class="tag tag-purple">ML</span><span class="tag tag-green">Python</span></div>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="section" id="skills">
+      <div class="container narrow center">
+        <p class="eyebrow reveal">Toolbox</p>
+        <h2 class="section-title reveal">Skills &amp; Stack</h2>
+
+        <div class="skill-group reveal">
+          <p class="skill-cat">Languages</p>
+          <div class="tags center">
+            <span class="tag tag-red">Java</span>
+            <span class="tag tag-yellow">JavaScript</span>
+            <span class="tag tag-green">Python</span>
+            <span class="tag tag-blue">C++</span>
+          </div>
+        </div>
+        <div class="skill-group reveal">
+          <p class="skill-cat">Frontend</p>
+          <div class="tags center">
+            <span class="tag tag-cyan">React.js</span>
+            <span class="tag tag-orange">HTML</span>
+            <span class="tag tag-indigo">CSS</span>
+            <span class="tag tag-purple">Electron.js</span>
+          </div>
+        </div>
+        <div class="skill-group reveal">
+          <p class="skill-cat">Backend &amp; Data</p>
+          <div class="tags center">
+            <span class="tag tag-green">Spring Boot</span>
+            <span class="tag tag-blue">REST APIs</span>
+            <span class="tag tag-mint">Trino</span>
+            <span class="tag tag-orange">Grafana</span>
+            <span class="tag tag-cyan">Elasticsearch</span>
+            <span class="tag tag-gray">MySQL</span>
+          </div>
+        </div>
+        <div class="skill-group reveal">
+          <p class="skill-cat">Tools</p>
+          <div class="tags center">
+            <span class="tag tag-orange">Git</span>
+            <span class="tag tag-gray">GitHub</span>
+            <span class="tag tag-blue">Bitbucket</span>
+            <span class="tag tag-red">IntelliJ</span>
+            <span class="tag tag-green">Postman</span>
+            <span class="tag tag-indigo">VS Code</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CODING PROFILES -->
+    <section class="section" id="coding">
+      <div class="container">
+        <p class="eyebrow center reveal">Competitive Programming</p>
+        <h2 class="section-title metallic center reveal">Coding Profiles</h2>
+        <p class="subtitle center reveal">Consistent problem solving across platforms.</p>
+
+        <div class="stats">
+          <div class="stat reveal">
+            <p class="stat-platform">LeetCode</p>
+            <p class="stat-num">180+</p>
+            <p class="stat-label">problems · max rating 1609</p>
+          </div>
+          <div class="stat reveal">
+            <p class="stat-platform">GeeksforGeeks</p>
+            <p class="stat-num">300+</p>
+            <p class="stat-label">problems · max rating 1744</p>
+          </div>
+          <div class="stat reveal">
+            <p class="stat-platform">HackerRank</p>
+            <p class="stat-num">5★</p>
+            <p class="stat-label">C++ · 4★ Python · 3★ Java</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RECOGNITION -->
+    <section class="section" id="recognition">
+      <div class="container narrow">
+        <p class="eyebrow center reveal">Recognition</p>
+        <h2 class="section-title center reveal">Achievements</h2>
+
+        <div class="award-list">
+          <div class="award reveal">
+            <div class="xp-logo grad-c sm"><ion-icon name="trophy-outline"></ion-icon></div>
+            <div>
+              <h3 class="award-title">Champions Award — Q4 2025</h3>
+              <p class="award-desc">Recognized at Lucidity for high-impact, cross-functional contributions (Oct–Dec 2025).</p>
+            </div>
+          </div>
+          <div class="award reveal">
+            <div class="xp-logo grad-a sm"><ion-icon name="rocket-outline"></ion-icon></div>
+            <div>
+              <h3 class="award-title">Promoted Intern → Software Development Engineer</h3>
+              <p class="award-desc">Converted to full-time SDE at Lucidity for impact during the internship.</p>
+            </div>
+          </div>
+          <div class="award reveal">
+            <div class="xp-logo grad-b sm"><ion-icon name="document-text-outline"></ion-icon></div>
+            <div>
+              <h3 class="award-title">Research — Quantum-Inspired Cuckoo Search</h3>
+              <p class="award-desc">UAV-assisted MEC user allocation in disaster scenarios; +13% efficiency. Paper pending publication.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section" id="contact">
+      <div class="container narrow center">
+        <p class="eyebrow reveal">Get in touch</p>
+        <h2 class="section-title metallic reveal">Let's build something</h2>
+        <p class="subtitle reveal">Got an idea, a role, or just want to say hi? My inbox is always open.</p>
+
+        <div class="contact-grid reveal">
+          <a href="mailto:nikhil652004@gmail.com" class="contact-row">
+            <ion-icon name="mail-outline"></ion-icon><span>nikhil652004@gmail.com</span>
+            <ion-icon name="arrow-forward-outline" class="arr"></ion-icon>
+          </a>
+          <a href="tel:+918309666468" class="contact-row">
+            <ion-icon name="call-outline"></ion-icon><span>+91 83096 66468</span>
+            <ion-icon name="arrow-forward-outline" class="arr"></ion-icon>
+          </a>
+          <a href="https://www.linkedin.com/in/nikhil-sri-sai-teja-gokarakonda-0bb614250" target="_blank" rel="noopener" class="contact-row">
+            <ion-icon name="logo-linkedin"></ion-icon><span>LinkedIn</span>
+            <ion-icon name="arrow-forward-outline" class="arr"></ion-icon>
+          </a>
+          <a href="https://github.com/Nikhil-652004" target="_blank" rel="noopener" class="contact-row">
+            <ion-icon name="logo-github"></ion-icon><span>GitHub</span>
+            <ion-icon name="arrow-forward-outline" class="arr"></ion-icon>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      © <span data-year></span> Gokarakonda Nikhil Sri Sai Teja · Built with coffee &amp; monospace.
+    </footer>
 
   </main>
 
+  <!-- FLOATING DOCK NAV -->
+  <nav class="dock" data-dock>
+    <a href="#home" class="dock-item active" data-dock-link title="Home"><ion-icon name="home-outline"></ion-icon></a>
+    <a href="#about" class="dock-item" data-dock-link title="About"><ion-icon name="person-outline"></ion-icon></a>
+    <a href="#projects" class="dock-item dock-center" data-dock-link title="Projects"><ion-icon name="grid-outline"></ion-icon></a>
+    <a href="#experience" class="dock-item" data-dock-link title="Experience"><ion-icon name="briefcase-outline"></ion-icon></a>
+    <a href="#contact" class="dock-item" data-dock-link title="Contact"><ion-icon name="mail-outline"></ion-icon></a>
+  </nav>
 
-
-
-
-
-  <!--
-    - custom js link
-  -->
   <script src="./assets/js/script.js"></script>
-
-  <!--
-    - ionicon link
-  -->
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
