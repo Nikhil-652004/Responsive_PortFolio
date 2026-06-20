@@ -163,3 +163,40 @@ for (let i = 0; i < navigationLinks.length; i++) {
 
   });
 }
+
+
+
+// cursor spotlight — glow that trails the pointer (skip on touch)
+if (window.matchMedia("(pointer: fine)").matches) {
+  const glow = document.createElement("div");
+  glow.className = "cursor-glow";
+  glow.style.opacity = "0";
+  document.body.appendChild(glow);
+
+  let gx = 0, gy = 0, tx = 0, ty = 0;
+  document.addEventListener("mousemove", function (e) {
+    tx = e.clientX; ty = e.clientY; glow.style.opacity = "1";
+  });
+  (function loop() {
+    gx += (tx - gx) * 0.12; gy += (ty - gy) * 0.12;
+    glow.style.transform = `translate(${gx}px, ${gy}px)`;
+    requestAnimationFrame(loop);
+  })();
+}
+
+
+
+// scroll reveal — stagger cards into view
+const revealEls = document.querySelectorAll(".service-item, .timeline-item, .content-card, .clients-item, .skills-item");
+revealEls.forEach(function (el) { el.classList.add("reveal"); });
+
+const revealObserver = new IntersectionObserver(function (entries) {
+  entries.forEach(function (entry) {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("in");
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+
+revealEls.forEach(function (el) { revealObserver.observe(el); });
