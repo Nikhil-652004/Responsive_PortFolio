@@ -1,6 +1,6 @@
 /* Vendored from https://github.com/imperfec-t/swarm-Antigravity @ 18fd261 (swarm-rebuild/swarm.js),
  * a tribute to Swarm by Joel Califa (https://califa.github.io/swarm-site/). No license upstream.
- * Local change: sound defaults to off (soundPref = false). Press M in the swarm toolbar to enable. */
+ * Local changes: sound defaults to off (soundPref = false); toolbar tooltips use the site's comic style (data-tip). */
 /*
  * Swarm Rebuild
  *
@@ -1545,6 +1545,11 @@
 .hud button.snd.off{color:#8a8a8a}
 .hud button.snd.tap{background:#0D99FF;animation:hudpulse 1.6s ease-in-out infinite}
 @keyframes hudpulse{50%{box-shadow:0 0 0 4px rgba(13,153,255,.28)}}
+.hud button[data-tip]{position:relative}
+.hud button[data-tip]::after{content:attr(data-tip);position:absolute;bottom:calc(100% + 12px);left:50%;width:max-content;max-width:220px;padding:6px 11px;border:2px solid #17110d;border-radius:12px;background:#fffaf0;color:#17110d;box-shadow:3px 3px 0 #17110d;font:600 12px/1.3 Manrope,Inter,system-ui,sans-serif;pointer-events:none;opacity:0;transform:translate(-50%,4px);transition:opacity .18s,transform .25s cubic-bezier(.22,1,.36,1)}
+.hud button[data-tip]:hover::after,.hud button[data-tip]:focus-visible::after{opacity:1;transform:translate(-50%,0);transition-delay:.25s}
+.hud button.x[data-tip]::after{left:auto;right:0;transform:translate(0,4px)}
+.hud button.x[data-tip]:hover::after,.hud button.x[data-tip]:focus-visible::after{transform:translate(0,0)}
 `;
 
   // -------------------------------------------------------------------- env
@@ -1644,12 +1649,12 @@
   <div class="dots"></div>
   <div class="txt"><span class="status">Scanning page…</span></div>
   <div class="bar"><i></i></div>
-  <button data-a="tour" title="Auto-scroll while the swarm builds">Tour</button>
-  <button data-a="speed" title="Build speed">1×</button>
-  <button data-a="sound" class="snd" title="Sound (M)"></button>
-  <button data-a="live" class="pri" hidden title="Fade back to the real page">Go live</button>
-  <button data-a="replay" hidden title="Wipe and rebuild again">Replay</button>
-  <button data-a="close" class="x" title="Exit (Esc)">✕</button>
+  <button data-a="tour" data-tip="Auto-scroll while the swarm builds" aria-label="Tour: auto-scroll while the swarm builds">Tour</button>
+  <button data-a="speed" data-tip="Build speed" aria-label="Build speed">1×</button>
+  <button data-a="sound" class="snd" data-tip="Sound (M)" aria-label="Sound (M)"></button>
+  <button data-a="live" class="pri" hidden data-tip="Fade back to the real page" aria-label="Go live: fade back to the real page">Go live</button>
+  <button data-a="replay" hidden data-tip="Wipe and rebuild again" aria-label="Replay: wipe and rebuild again">Replay</button>
+  <button data-a="close" class="x" data-tip="Exit (Esc)" aria-label="Exit (Esc)">✕</button>
 </div>`;
       const $ = (s) => root.querySelector(s);
       this.bg = $(".bg");
@@ -3646,7 +3651,7 @@
       const waves = '<path d="M11 5.5a3.5 3.5 0 0 1 0 5M12.8 3.6a6 6 0 0 1 0 8.8"/>';
       const mute = '<path d="M11 6l4 4M15 6l-4 4"/>';
       b.innerHTML = `${SPK_ICON}${key === "off" ? mute : waves}</svg>${tap ? "<span>Tap for sound</span>" : ""}`;
-      b.title = key === "off" ? "Sound off (M)" : "Sound on (M)";
+      b.dataset.tip = key === "off" ? "Sound off (M)" : "Sound on (M)"; b.setAttribute("aria-label", b.dataset.tip);
     }
 
     frame(now) {

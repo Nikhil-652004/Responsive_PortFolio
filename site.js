@@ -18,6 +18,37 @@ const SITE = {
       "Recently I built a homegrown <b>AI-powered PR review tool</b> with a pluggable LLM switch for Claude and Gemini — bridging clean engineering with practical AI.",
     ],
     portrait: "assets/portrait.webp",
+    // Hero: the real photo alternates with the glance shot. After photoMs the drawn me (toon.js) takes the
+    // photo's place, then steps out as a small full-body walker that walks along each section's top line,
+    // climbs down to the next one as you scroll, and reacts to what you hover, click and type.
+    character: {
+      photos: ["assets/portrait.webp", "assets/portrait-glance.webp"],
+      photoMs: 5000,
+      hello: "hi! I'm mini-Nikhil 👋",
+      sections: {
+        work: "these are my builds 🛠️",
+        about: "a bit about me",
+        journey: "how I got here",
+        contact: "say hi!",
+      },
+      talk: {
+        drag: "whoa! put me down!",
+        drop: "wheee!",
+        button: "click it! 👆",
+        mail: "drop me a line ✉️",
+        timeline: "good times",
+        filter: "let's see… 🔍",
+        sent: "yay, message on its way!",
+        landed: "nailed the landing 🪂",
+      },
+      lines: {
+        happy: "hey, you found me 👋",
+        laugh: "haha, that tickles",
+        wink: "let's build something",
+        surprised: "whoa, slow down!",
+        curious: "ooh, that one's fun",
+      },
+    },
     resume: "",
     highlights: ["React.js", "Spring Boot", "Java", "TypeScript", "Python", "Elasticsearch"],
   },

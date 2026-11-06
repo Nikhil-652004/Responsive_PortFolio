@@ -157,6 +157,7 @@ h2 { font: 400 clamp(2.4rem, 7vw, 5.5rem)/.95 var(--display); text-transform: up
 
 /* Dialog */
 .dialog {
+  margin: auto; /* the global reset removes the browser default that centers modal dialogs */
   width: min(720px, calc(100% - 32px)); max-height: calc(100svh - 32px); padding: 0; border: 1px solid var(--line);
   border-radius: 16px; background: var(--bg-2); color: var(--text); overflow: auto;
 }
@@ -165,7 +166,7 @@ h2 { font: 400 clamp(2.4rem, 7vw, 5.5rem)/.95 var(--display); text-transform: up
 @keyframes pop { from { opacity: 0; transform: translateY(24px) scale(.98); } }
 .dlg-inner { padding: 0 0 28px; position: relative; }
 .dlg-inner > :not(img):not(.type-cover):not(.dlg-close) { margin-left: clamp(18px, 4vw, 36px); margin-right: clamp(18px, 4vw, 36px); }
-.dlg-inner img { width: 100%; aspect-ratio: 16/9; object-fit: cover; margin-bottom: 24px; }
+.dlg-inner img, .type-cover.big { width: 100%; height: auto; aspect-ratio: 16/9; max-height: 45svh; object-fit: cover; margin-bottom: 24px; }
 .type-cover.big { position: relative; aspect-ratio: 16/9; margin-bottom: 24px; }
 .dlg-inner h3 { font: 2.6rem/1 var(--display); text-transform: uppercase; margin-bottom: 14px; }
 .dlg-inner p { margin-bottom: 16px; }
@@ -291,3 +292,165 @@ details[open] .plus::after { transform: rotate(0); }
 }
 .swarm-btn:hover { background: var(--accent); color: #fff; }
 @media (max-width: 600px) { .motion-toggle .lbl { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); } }
+
+/* Hero photo: front shot with the glance shot crossfading in and out */
+.portrait img { width: 100%; height: auto; }
+.portrait .glance { position: absolute; inset: 0; opacity: 0; animation: glance 7s 2.5s ease-in-out infinite; }
+.portrait:hover .glance { animation: none; }
+@keyframes glance { 0%, 52% { opacity: 0; } 57%, 86% { opacity: 1; } 91%, 100% { opacity: 0; } }
+
+/* Mini me: starts exactly over the hero photo, then walks the page */
+.buddy { position: fixed; left: 0; top: 0; z-index: 1; pointer-events: none; will-change: transform; opacity: 0; transition: opacity .9s var(--ease); }
+.buddy.on { opacity: 1; }
+.buddy[hidden] { display: none; }
+.portrait img { transition: opacity .9s var(--ease); }
+.portrait.handed-off img { opacity: 0 !important; animation: none; }
+.buddy-view {
+  position: relative; width: 100%; height: 100%; pointer-events: auto; cursor: grab; touch-action: none;
+}
+.buddy.dangling .buddy-view { cursor: grabbing; }
+.buddy .toon { position: absolute; inset: 0; width: 100%; height: 100%; }
+.buddy .bust { overflow: visible; } /* hair may rise above the photo frame; the bottom fade is inside the SVG */
+.buddy .walker { opacity: 0; overflow: visible; filter: drop-shadow(0 4px 5px rgb(0 0 0 / .5)); transition: transform .15s;
+  rotate: var(--lean, 0deg); transform-origin: 50% 100%; }
+.buddy.is-walker .buddy-view { -webkit-mask-image: none; mask-image: none; }
+.buddy.face-left .walker { transform: scaleX(-1); }
+.toon .ol { stroke: #2a1e18; stroke-width: 5; stroke-linejoin: round; }
+.toon .ol.thin { stroke-width: 2.5; }
+.toon .ol.w { stroke-width: 1.6; }
+
+/* walker poses */
+.walker .t-leg, .walker .t-arm { transform-box: view-box; transition: transform .2s var(--ease); }
+.walker .t-leg-l { transform-origin: 124px 335px; }
+.walker .t-leg-r { transform-origin: 176px 335px; }
+.walker .t-arm-l { transform-origin: 98px 212px; }
+.walker .t-arm-r { transform-origin: 202px 212px; }
+.buddy.walking .walker .t-leg-l { animation: step .42s ease-in-out infinite alternate; }
+.buddy.walking .walker .t-leg-r { animation: step .42s ease-in-out infinite alternate-reverse; }
+.buddy.walking .walker .t-arm-l { animation: step .42s ease-in-out infinite alternate-reverse; }
+.buddy.walking .walker .t-arm-r { animation: step .42s ease-in-out infinite alternate; }
+.buddy.walking .walker { animation: bob .21s ease-in-out infinite alternate; }
+@keyframes step { from { transform: rotate(-10deg); } to { transform: rotate(10deg); } }
+@keyframes bob { to { translate: 0 -2px; } }
+/* climbing down a wall: arms up gripping, legs stepping */
+.buddy.climbing .walker .t-arm-l { transform: rotate(158deg); }
+.buddy.climbing .walker .t-arm-r { transform: rotate(-158deg); }
+.buddy.climb-move .walker .t-arm-l { animation: grip-l .5s ease-in-out infinite alternate; }
+.buddy.climb-move .walker .t-arm-r { animation: grip-r .5s ease-in-out infinite alternate; }
+.buddy.climb-move .walker .t-leg-l { animation: step .5s ease-in-out infinite alternate; }
+.buddy.climb-move .walker .t-leg-r { animation: step .5s ease-in-out infinite alternate-reverse; }
+@keyframes grip-l { from { transform: rotate(140deg); } to { transform: rotate(170deg); } }
+@keyframes grip-r { from { transform: rotate(-170deg); } to { transform: rotate(-140deg); } }
+/* jumping down / dangling when picked up */
+.buddy.jumping .walker .t-arm-l, .buddy.dangling .walker .t-arm-l { transform: rotate(130deg); }
+.buddy.jumping .walker .t-arm-r, .buddy.dangling .walker .t-arm-r { transform: rotate(-130deg); }
+.buddy.jumping .walker .t-leg-l { transform: rotate(8deg); }
+.buddy.jumping .walker .t-leg-r { transform: rotate(-8deg); }
+.buddy.dangling .walker .t-leg-l { animation: step .3s ease-in-out infinite alternate; }
+.buddy.dangling .walker .t-leg-r { animation: step .3s ease-in-out infinite alternate-reverse; }
+.buddy.dangling .walker { animation: sway .9s ease-in-out infinite alternate; transform-origin: 50% 10%; }
+@keyframes sway { from { rotate: -8deg; } to { rotate: 8deg; } }
+/* wave + hop */
+.buddy.waving .walker .t-arm-r { animation: wave .32s ease-in-out infinite alternate; }
+@keyframes wave { from { transform: rotate(-140deg); } to { transform: rotate(-170deg); } }
+.buddy.hop .walker, .buddy.hop .bust { animation: hop .7s cubic-bezier(.3, 1.6, .5, 1); }
+@keyframes hop { 35% { translate: 0 -14%; } 70% { translate: 0 0; scale: 1.06 .94; } }
+
+/* comic speech bubble */
+.bubble {
+  position: absolute; right: -6px; bottom: calc(100% + 14px); margin: 0; width: max-content; max-width: 22ch;
+  padding: 7px 14px 8px; border: 3px solid #17110d; border-radius: 22px; background: #fffaf0; color: #17110d;
+  font: 700 1.3rem/1.05 var(--hand); box-shadow: 4px 4px 0 #17110d; pointer-events: none;
+  opacity: 0; transform: scale(.3) rotate(-10deg); transform-origin: 85% 120%;
+}
+.bubble::before, .bubble::after { content: ""; position: absolute; right: 18px; border-style: solid; border-color: transparent; border-bottom: 0; }
+.bubble::before { bottom: -16px; border-width: 16px 9px 0; border-top-color: #17110d; }
+.bubble::after { bottom: -10px; right: 21px; border-width: 11px 6px 0; border-top-color: #fffaf0; }
+.buddy:not(.left) .bubble { right: auto; left: -6px; transform-origin: 15% 120%; }
+.buddy:not(.left) .bubble::before { right: auto; left: 18px; }
+.buddy:not(.left) .bubble::after { right: auto; left: 21px; }
+.bubble.on { opacity: 1; transform: rotate(-2deg); animation: bubble-pop .5s cubic-bezier(.34, 1.7, .6, 1); }
+@keyframes bubble-pop { from { opacity: 0; transform: scale(.3) rotate(-10deg); } }
+@media (max-width: 600px) { .bubble { font-size: 1.1rem; } }
+
+/* moods: one mouth at a time; eyes/brows/blush per mood */
+.toon .mo, .toon .t-shut, .toon .t-joy { display: none; }
+.toon .t-blush { opacity: .6; transition: opacity .3s; }
+.toon .t-brow-l, .toon .t-brow-r { transition: transform .25s var(--ease); transform-box: fill-box; transform-origin: center; }
+.toon:not([data-mood]) .mo-smile, .toon[data-mood=""] .mo-smile, .toon[data-mood="blink"] .mo-smile { display: inline; }
+.toon[data-mood="blink"] .t-eye { display: none; }
+.toon[data-mood="blink"] .t-shut { display: inline; }
+.toon[data-mood="happy"] .mo-grin { display: inline; }
+.toon[data-mood="happy"] .t-blush, .toon[data-mood="laugh"] .t-blush { opacity: 1; }
+.toon[data-mood="happy"] .t-brow-l, .toon[data-mood="happy"] .t-brow-r { transform: translateY(-6px); }
+.toon[data-mood="laugh"] .mo-laugh, .toon[data-mood="laugh"] .t-joy { display: inline; }
+.toon[data-mood="laugh"] .t-eye { display: none; }
+.toon[data-mood="laugh"] .t-brow-l, .toon[data-mood="laugh"] .t-brow-r { transform: translateY(-10px); }
+.toon[data-mood="wink"] .mo-smirk, .toon[data-mood="wink"] .t-shut-r { display: inline; }
+.toon[data-mood="wink"] .t-eye-r { display: none; }
+.toon[data-mood="wink"] .t-brow-r { transform: translateY(6px) rotate(-6deg); }
+.toon[data-mood="surprised"] .mo-o { display: inline; }
+.toon[data-mood="surprised"] .t-brow-l, .toon[data-mood="surprised"] .t-brow-r { transform: translateY(-18px); }
+.toon[data-mood="surprised"] .t-eye { transform: scale(1.18); transform-box: fill-box; transform-origin: center; }
+.toon[data-mood="curious"] .mo-smirk { display: inline; }
+.toon[data-mood="curious"] .t-brow-l { transform: translateY(-16px) rotate(-8deg); }
+.toon[data-mood="curious"] .t-brow-r { transform: translateY(4px); }
+/* life: slow breathing, and a little hop when he laughs */
+.toon .t-body { animation: breathe 4.5s ease-in-out infinite; transform-box: fill-box; transform-origin: 50% 100%; }
+@keyframes breathe { 50% { transform: scaleY(1.008); } }
+
+/* brow moves scaled to the small walker's face */
+.toon.walker[data-mood="happy"] .t-brow-l, .toon.walker[data-mood="happy"] .t-brow-r { transform: translateY(-2px); }
+.toon.walker[data-mood="laugh"] .t-brow-l, .toon.walker[data-mood="laugh"] .t-brow-r { transform: translateY(-3px); }
+.toon.walker[data-mood="wink"] .t-brow-r { transform: translateY(2px) rotate(-6deg); }
+.toon.walker[data-mood="surprised"] .t-brow-l, .toon.walker[data-mood="surprised"] .t-brow-r { transform: translateY(-5px); }
+.toon.walker[data-mood="curious"] .t-brow-l { transform: translateY(-5px) rotate(-8deg); }
+.toon.walker[data-mood="curious"] .t-brow-r { transform: translateY(1.5px); }
+
+/* ---- life: weight, anticipation, wind ---- */
+.buddy.crouch .walker { scale: 1.06 .9; transition: scale .12s ease-out; }
+.buddy.land .walker { animation: land .3s cubic-bezier(.3, 1.5, .5, 1); }
+@keyframes land { 0% { scale: 1.12 .84; } 100% { scale: 1 1; } }
+.buddy.jumping .walker { scale: .96 1.05; }
+/* hair fringe and drawstrings sway in a light breeze */
+.toon .t-fringe { transform-box: fill-box; transform-origin: 50% 0; animation: breeze 3.6s ease-in-out infinite; }
+.toon .t-strings { transform-box: fill-box; transform-origin: 50% 0; animation: breeze 2.8s ease-in-out infinite reverse; }
+@keyframes breeze { 0%, 100% { transform: rotate(-1.2deg); } 50% { transform: rotate(1.4deg) translateX(1px); } }
+.buddy.walking .toon .t-strings { animation-duration: .5s; }
+/* idle moves */
+.buddy.stretch .walker .t-arm-l { animation: stretch-l 1.5s ease-in-out; }
+.buddy.stretch .walker .t-arm-r { animation: stretch-r 1.5s ease-in-out; }
+.buddy.stretch .walker { animation: stretch-body 1.5s ease-in-out; }
+@keyframes stretch-l { 30%, 70% { transform: rotate(165deg); } }
+@keyframes stretch-r { 30%, 70% { transform: rotate(-165deg); } }
+@keyframes stretch-body { 30%, 70% { scale: .98 1.04; } }
+.buddy.tap .walker .t-leg-r { animation: tap .3s ease-in-out 4 alternate; }
+@keyframes tap { to { transform: rotate(-12deg); } }
+/* parachute */
+.walker .t-chute { opacity: 0; transform-box: view-box; transform-origin: 150px 85px; scale: .2; transition: opacity .2s, scale .35s cubic-bezier(.3, 1.6, .5, 1); }
+.buddy.parachuting .walker .t-chute { opacity: 1; scale: 1.4; }
+.buddy.parachuting .walker .t-arm-l { transform: rotate(158deg); }
+.buddy.parachuting .walker .t-arm-r { transform: rotate(-158deg); }
+.buddy.parachuting .walker .t-leg-l { animation: step 1.1s ease-in-out infinite alternate; }
+.buddy.parachuting .walker .t-leg-r { animation: step 1.1s ease-in-out infinite alternate-reverse; }
+.buddy.parachuting .walker { animation: chute-sway 1.6s ease-in-out infinite alternate; transform-origin: 50% 0; }
+@keyframes chute-sway { from { rotate: -6deg; } to { rotate: 6deg; } }
+.buddy.parachuting .bubble { bottom: calc(100% + 95px); } /* clear the canopy */
+
+/* Swarm running: hide mini-me, show the real photo again (so the swarm snapshot is clean) */
+.swarm-on .buddy { display: none !important; }
+.swarm-on .portrait.handed-off img:not(.glance) { opacity: 1 !important; transition: none !important; }
+
+/* header tooltips: same comic style as mini-me's bubble, on hover and keyboard focus */
+.tip { position: relative; }
+.tip::after {
+  content: attr(data-tip); position: absolute; top: calc(100% + 12px); left: 50%; z-index: 60;
+  width: max-content; max-width: 240px; padding: 7px 12px; border: 2px solid #17110d; border-radius: 14px;
+  background: #fffaf0; color: #17110d; box-shadow: 3px 3px 0 #17110d;
+  font: 600 .8rem/1.3 var(--body); letter-spacing: 0; text-transform: none; white-space: normal; text-align: left;
+  pointer-events: none; opacity: 0; transform: translate(-50%, -4px); transition: opacity .18s, transform .25s var(--ease);
+}
+.tip:hover::after, .tip:focus-visible::after { opacity: 1; transform: translate(-50%, 0); transition-delay: .25s; }
+.tip-end::after { left: auto; right: 0; transform: translate(0, -4px); }
+.tip-end:hover::after, .tip-end:focus-visible::after { transform: translate(0, 0); }
+@media (hover: none) { .tip::after { display: none; } }
