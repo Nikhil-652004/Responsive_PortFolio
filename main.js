@@ -219,7 +219,8 @@
 
     const say = (text, ms = 1900) => {
       if (!text) return;
-      bubble.textContent = text; bubble.classList.remove("on"); void bubble.offsetWidth; bubble.classList.add("on");
+      bubble.replaceChildren(Object.assign(document.createElement("span"), { textContent: text })); // the printed tile on the brick wall
+      bubble.classList.remove("on"); void bubble.offsetWidth; bubble.classList.add("on");
       clearTimeout(say.t); say.t = setTimeout(() => bubble.classList.remove("on"), ms);
     };
     const setMood = (m) => toons.forEach((sv) => sv.dataset.mood !== m && (sv.dataset.mood = m));
@@ -228,17 +229,21 @@
       setMood(m); moodUntil = performance.now() + ms; say(line, ms + 300);
     };
     const pose = (name, ms) => { buddy.classList.add(name); clearTimeout(pose[name]); pose[name] = setTimeout(() => buddy.classList.remove(name), ms); };
-    const size = () => (innerWidth <= 800 ? { h: 120, w: 120 * 200 / 585 } : { h: 160, w: 160 * 200 / 585 });
+    const vb = walker.viewBox.baseVal, aspect = vb.width / vb.height; // the walker drawing's proportions
+    const size = () => (innerWidth <= 800 ? { h: 104, w: 104 * aspect } : { h: 150, w: 150 * aspect });
 
     // ---- where can he stand? ----
-    const spot = (el, w, nearX) => { // a standing point on el's top edge, nearest to nearX (doc coords)
-      const r = el.getBoundingClientRect(), pad = Math.min(w * 0.6, r.width / 2);
-      return { x: clamp(nearX ?? r.left + r.width / 2, r.left + pad, r.right - pad), y: r.top + scrollY };
+    const roomTop = (h) => $(".header").offsetHeight + h + 20; // room for all of him below the sticky header
+    const spot = (el, w, nearX) => { // a standing point on el (doc coords): its top edge, or its face if the top is scrolled away
+      const r = el.getBoundingClientRect(), pad = Math.min(w * 0.6, r.width / 2), m = roomTop(size().h);
+      const sy = r.top >= m ? r.top : Math.min(r.bottom - 12, Math.max(m, innerHeight * 0.6));
+      return { x: clamp(nearX ?? r.left + r.width / 2, r.left + pad, r.right - pad), y: sy + scrollY };
     };
     const usable = (el, h, loose) => {
-      const r = el.getBoundingClientRect();
-      const top = $(".header").offsetHeight + h; // room for all of him below the sticky header
-      return r.width > 40 && r.height > 0 && r.top > (loose ? top : top + 60) && r.top < innerHeight - (loose ? 10 : 30);
+      const r = el.getBoundingClientRect(), top = roomTop(h);
+      if (r.width <= 40 || r.height <= 0) return false;
+      return loose ? r.bottom > top + 30 && r.top < innerHeight - 10 // still has a visible part he can stand on
+                   : r.top > top + 40 && r.top < innerHeight - 30;   // its top edge is comfortably in view
     };
     const bestPerch = (h) => {
       let best = null, score = 1e9;
@@ -247,7 +252,12 @@
         const d = Math.abs(el.getBoundingClientRect().top - innerHeight * 0.6);
         if (d < score) { score = d; best = el; }
       }
-      return best;
+      if (best) return best;
+      for (const el of document.querySelectorAll(PERCHES)) { // nothing's top edge in view (e.g. one tall card): stand on its face
+        const r = el.getBoundingClientRect();
+        if (r.width > 40 && r.top < innerHeight * 0.6 && r.bottom > innerHeight * 0.6) return el;
+      }
+      return null;
     };
 
     // ---- moves: a small queue of walk / climb / jump steps, each time-based ----
@@ -337,7 +347,7 @@
         if (!dragging && !act && !queue.length) {
           const want = visit?.el || (perch && usable(perch, h, true) ? perch : bestPerch(h));
           if (want && want !== perch) { const to = { ...spot(want, w, feet.x), el: want }; go(to, w); perch = want; }
-          else if (want) { const s2 = spot(want, w, feet.x); if (Math.abs(s2.y - feet.y) > 2) feet.y = s2.y; }
+          else if (want) { const s2 = spot(want, w, feet.x); if (Math.abs(s2.y - feet.y) > 2) feet.y = lerp(feet.y, s2.y, 0.25); }
           const sec = perch?.closest("section, footer")?.id;
           if (sec && sec !== section) { section = sec; if (CH.sections[sec]) say(CH.sections[sec]); }
         }
@@ -358,8 +368,9 @@
           if (u >= 1) { feet = { x: act.x, y: act.y }; act = null; pose("land", 260); }
         } else if (act?.type === "chute") {
           const u = clamp((t - act.t0) / act.dur, 0, 1), e = 1 - (1 - u) ** 1.6; // quick drop as it opens, then floaty
-          const sway = Math.sin((t - act.t0) / 260) * 14 * (1 - u);
-          feet = { x: lerp(act.from.x, act.x, u) + sway, y: lerp(act.from.y, act.y, e) };
+          const ex = u * u * (3 - 2 * u); // drift towards the landing spot (no side-to-side rocking)
+          feet = { x: lerp(act.from.x, act.x, ex), y: lerp(act.from.y, act.y, e) };
+          walker.style.setProperty("--tilt", `${clamp((act.x - feet.x) * 0.08, -12, 12).toFixed(2)}deg`); // lean into the drift, level out on arrival
           const minY = scrollY + headerH + h * 1.45; // the page scrolls past faster than he falls: ride down with the screen
           if (feet.y < minY && act.y > minY) { feet.y = minY; act.from = { ...feet }; act.t0 = t; act.dur = clamp((act.y - minY) / 0.42, 600, 2000); }
           state = "chute"; vx = 0;
